@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 33% 5%;
+    --foreground: 0 0% 98%;
+    --card: 240 27% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 27% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 189 94% 43%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 27% 14%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 27% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 32% 17%;
+    --input: 240 32% 17%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    --accent-glow: 124 58 237;
+  }
+
+  .dark {
+    --background: 240 33% 5%;
+    --foreground: 0 0% 98%;
+    --card: 240 27% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 27% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 189 94% 43%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 27% 14%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 27% 14%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 32% 17%;
+    --input: 240 32% 17%;
+    --ring: 262 83% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    background: rgba(124, 58, 237, 0.35);
+    color: #fafafa;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    background: linear-gradient(
+      90deg,
+      #7c3aed 0%,
+      #a855f7 35%,
+      #06b6d4 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 6s linear infinite;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 60px -12px rgba(124, 58, 237, 0.6);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Hide default cursor on desktop when custom cursor active */
+@media (min-width: 768px) {
+  body.custom-cursor,
+  body.custom-cursor * {
+    cursor: none !important;
+  }
+}
